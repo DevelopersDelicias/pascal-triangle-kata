@@ -24,6 +24,22 @@ public class PascalTriangle {
 			levels[2] = levelThree();
 		}
 
+		if (this.level == 4) {
+			levels[0] = levelOne();
+			levels[1] = new Level(
+					valueOfOne(),
+					valueOfOne()
+			);
+			levels[2] = levelThree();
+			levels[3] = new Level(
+					valueOfOne(),
+					valueOfOne().plus(valueOfTwo()),
+					valueOfOne().plus(valueOfTwo()),
+					valueOfOne()
+
+			);
+		}
+
 		return new Levels(levels);
 	}
 
@@ -37,7 +53,7 @@ public class PascalTriangle {
 	}
 
 	private Value valueOfTwo() {
-		return new Value(2);
+		return valueOfOne().plus(valueOfOne());
 	}
 
 	private Value valueOfOne() {

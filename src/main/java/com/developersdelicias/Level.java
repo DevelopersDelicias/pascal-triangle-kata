@@ -54,4 +54,11 @@ public class Level {
 	public int hashCode() {
 		return Objects.hash(this.values);
 	}
+
+	public Value valueAt(int index) {
+		if (index < 0 || index >= values.size())
+			return new Value(0);
+
+		return this.values.valueAt(index);
+	}
 }

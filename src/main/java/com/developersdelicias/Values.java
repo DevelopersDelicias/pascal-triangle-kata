@@ -6,12 +6,8 @@ import java.util.Objects;
 public class Values {
 	private final Value[] values;
 
-	public Values(Value... values) {
+	Values(Value... values) {
 		this.values = values;
-	}
-
-	public static String valueSeparator() {
-		return ", ";
 	}
 
 	@Override
@@ -40,5 +36,17 @@ public class Values {
 	@Override
 	public int hashCode() {
 		return Objects.hashCode(values);
+	}
+
+	public Value valueAt(int index) {
+		return values[index];
+	}
+
+	public int size() {
+		return values.length;
+	}
+
+	private String valueSeparator() {
+		return ", ";
 	}
 }

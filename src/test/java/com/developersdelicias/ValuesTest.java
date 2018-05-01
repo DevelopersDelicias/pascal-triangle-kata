@@ -64,4 +64,22 @@ public class ValuesTest {
 				is("85, 14, 63, 69, 145, 7")
 		);
 	}
+
+	@Test
+	public void can_know_its_size() {
+		Values sixElementsValues= new Values(
+				new Value(85),
+				new Value(14),
+				new Value(63),
+				new Value(69),
+				new Value(145),
+				new Value(7)
+		);
+
+		assertThat(
+				"Cannot know the size of the elements",
+				sixElementsValues.size(),
+				is(6)
+		);
+	}
 }

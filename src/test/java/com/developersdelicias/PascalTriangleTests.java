@@ -12,7 +12,7 @@ public class PascalTriangleTests {
 	private static final int ANY_LEVEL = 2;
 
 	@Test
-	public void is_a_collection_of_levels_level_one() {
+	public void can_get_pascal_levels_for_level_one() {
 		final PascalTriangle triangle = new PascalTriangle(1);
 
 		assertThat(
@@ -28,7 +28,7 @@ public class PascalTriangleTests {
 	}
 
 	@Test
-	public void is_a_collection_of_levels_level_two() {
+	public void can_get_pascal_levels_for_level_two() {
 		final PascalTriangle triangle = new PascalTriangle(2);
 
 		assertThat(
@@ -48,11 +48,11 @@ public class PascalTriangleTests {
 	}
 
 	@Test
-	public void is_a_collection_of_levels() {
+	public void can_get_pascal_levels_for_level_three() {
 		final PascalTriangle triangle = new PascalTriangle(3);
 
 		assertThat(
-				"Is not a collection of Levels",
+				"Cannot get levels of Pascal Triangle of level 3",
 				triangle.levels(),
 				is(new Levels(
 								new Level(
@@ -65,6 +65,39 @@ public class PascalTriangleTests {
 								new Level(
 										new Value(1),
 										new Value(2),
+										new Value(1)
+
+								)
+						)
+				)
+		);
+	}
+
+	@Test
+	public void can_get_pascal_levels_for_level_four() {
+		final PascalTriangle triangle = new PascalTriangle(4);
+
+		assertThat(
+				"Cannot get levels of Pascal Triangle of level 4",
+				triangle.levels(),
+				is(new Levels(
+								new Level(
+										new Value(1)
+								),
+								new Level(
+										new Value(1),
+										new Value(1)
+								),
+								new Level(
+										new Value(1),
+										new Value(2),
+										new Value(1)
+
+								),
+								new Level(
+										new Value(1),
+										new Value(3),
+										new Value(3),
 										new Value(1)
 
 								)
