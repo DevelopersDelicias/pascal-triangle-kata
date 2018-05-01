@@ -11,15 +11,31 @@ public class PascalTriangle {
 		return "";
 	}
 
-	public String triangleOfLevelThree() {
-		return "[1]" + ", " + "[1, 1]" + ", " + "[1, 2, 1]";
+	public String triangleOfLevelOne() {
+		return levelOne();
 	}
 
 	public String triangleOfLevelTwo() {
-		return "[1]" + ", " + "[1, 1]";
+		return levelOne() + levelSeparator() + levelTwo();
 	}
 
-	public String triangleOfLevelOne() {
+	public String triangleOfLevelThree() {
+		return levelOne() + levelSeparator() + levelTwo() + levelSeparator() + levelThree();
+	}
+
+	private String levelThree() {
+		return "[1, 2, 1]";
+	}
+
+	private String levelTwo() {
+		return "[1, 1]";
+	}
+
+	private String levelSeparator() {
+		return ", ";
+	}
+
+	private String levelOne() {
 		return "[1]";
 	}
 }
