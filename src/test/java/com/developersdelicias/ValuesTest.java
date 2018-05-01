@@ -49,7 +49,7 @@ public class ValuesTest {
 
 	@Test
 	public void can_represent_any_list_more_than_three_elements_as_string() {
-		Values valuesWithMoreThanThreeElements= new Values(
+		Values valuesWithMoreThanThreeElements = new Values(
 				new Value(85),
 				new Value(14),
 				new Value(63),
@@ -67,7 +67,7 @@ public class ValuesTest {
 
 	@Test
 	public void can_know_its_size() {
-		Values sixElementsValues= new Values(
+		Values sixElementsValues = new Values(
 				new Value(85),
 				new Value(14),
 				new Value(63),
@@ -80,6 +80,29 @@ public class ValuesTest {
 				"Cannot know the size of the elements",
 				sixElementsValues.size(),
 				is(6)
+		);
+	}
+
+	@Test
+	public void can_add_more_values() {
+		Values initialValues = new Values(
+				new Value(1),
+				new Value(2),
+				new Value(3)
+		);
+
+		initialValues.add(new Value(4));
+
+		assertThat(
+				initialValues,
+				is(
+						new Values(
+								new Value(1),
+								new Value(2),
+								new Value(3),
+								new Value(4)
+						)
+				)
 		);
 	}
 }

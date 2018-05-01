@@ -2,70 +2,35 @@ package com.developersdelicias;
 
 public class PascalTriangle {
 
-	private final int level;
+	private final int numberOfLevels;
 
-	PascalTriangle(int level) {
-		this.level = level;
+	PascalTriangle(int numberOfLevels) {
+		this.numberOfLevels = numberOfLevels;
 	}
 
 	public Levels levels() {
-		Level[] levels = new Level[level];
-		if (this.level == 1)
+		Level[] levels = new Level[numberOfLevels];
+		if (this.numberOfLevels >= 1) {
 			levels[0] = levelOne();
-
-		if (this.level == 2) {
-			levels[0] = levelOne();
-			levels[1] = levelTwo();
+			for (int nextLevel = 1; nextLevel < this.numberOfLevels; nextLevel++) {
+				levels[nextLevel] = createNewLevel(levels[nextLevel - 1], nextLevel + 1);
+			}
 		}
-
-		if (this.level == 3) {
-			levels[0] = levelOne();
-			levels[1] = levelTwo();
-			levels[2] = levelThree();
-		}
-
-		if (this.level == 4) {
-			levels[0] = levelOne();
-			levels[1] = new Level(
-					valueOfOne(),
-					valueOfOne()
-			);
-			levels[2] = levelThree();
-			levels[3] = new Level(
-					valueOfOne(),
-					valueOfOne().plus(valueOfTwo()),
-					valueOfOne().plus(valueOfTwo()),
-					valueOfOne()
-
-			);
-		}
-
 		return new Levels(levels);
 	}
 
-	private Level levelThree() {
-		return new Level(
-				valueOfOne(),
-				valueOfTwo(),
-				valueOfOne()
-
-		);
-	}
-
-	private Value valueOfTwo() {
-		return valueOfOne().plus(valueOfOne());
+	private Level createNewLevel(Level previousLevel, int nextLevel) {
+		Values newValues = new Values();
+		for (int i = 0; i < nextLevel ; i++) {
+			newValues.add(previousLevel.valueAt(i - 1). plus(previousLevel.valueAt(i)));
+		}
+		return new Level(newValues);
 	}
 
 	private Value valueOfOne() {
 		return new Value(1);
 	}
 
-	private Level levelTwo() {
-		return new Level(
-				valueOfOne(),
-				valueOfOne()
-		);
-	}
 
 	private Level levelOne() {
 		return new Level(

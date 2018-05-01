@@ -9,6 +9,10 @@ public class Level {
 		this.values = new Values(values);
 	}
 
+	Level(Values values) {
+		this.values = values;
+	}
+
 	static String levelOne() {
 		Level levelOne = new Level(
 				new Value(1)

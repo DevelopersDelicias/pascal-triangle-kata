@@ -1,13 +1,14 @@
 package com.developersdelicias;
 
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.*;
+
+import static java.util.Arrays.asList;
 
 public class Values {
-	private final Value[] values;
+	private final List<Value> values;
 
 	Values(Value... values) {
-		this.values = values;
+		this.values = new ArrayList<>(asList(values));
 	}
 
 	@Override
@@ -18,15 +19,15 @@ public class Values {
 
 		Values other = (Values) o;
 
-		return Arrays.equals(this.values, other.values);
+		return Objects.equals(this.values, other.values);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder out = new StringBuilder("");
-		for (int currentIndex = 0; currentIndex < values.length; currentIndex++) {
-			out.append(values[currentIndex]);
-			if (values.length > 1 && currentIndex < values.length - 1)
+		for (int currentIndex = 0; currentIndex < this.size(); currentIndex++) {
+			out.append(values.get(currentIndex));
+			if (this.size() > 1 && currentIndex < this.size() - 1)
 				out.append(valueSeparator());
 		}
 
@@ -39,14 +40,18 @@ public class Values {
 	}
 
 	public Value valueAt(int index) {
-		return values[index];
+		return values.get(index);
 	}
 
 	public int size() {
-		return values.length;
+		return values.size();
 	}
 
 	private String valueSeparator() {
 		return ", ";
+	}
+
+	public void add(Value... newValues) {
+		this.values.addAll(asList(newValues));
 	}
 }
