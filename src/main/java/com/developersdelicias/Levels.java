@@ -5,12 +5,8 @@ import java.util.Arrays;
 public class Levels {
 	private final Level[] levels;
 
-	public Levels(Level ... levels) {
+	Levels(Level... levels) {
 		this.levels = levels;
-	}
-
-	public static String levelSeparator() {
-		return ", ";
 	}
 
 	@Override

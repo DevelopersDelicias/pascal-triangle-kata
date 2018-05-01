@@ -13,30 +13,6 @@ public class Level {
 		this.values = values;
 	}
 
-	static String levelOne() {
-		Level levelOne = new Level(
-				new Value(1)
-		);
-		return levelOne.toString();
-	}
-
-	static String levelTwo() {
-		Level levelTwo = new Level(
-				new Value(1),
-				new Value(1)
-		);
-		return levelTwo.toString();
-	}
-
-	static String levelThree() {
-		Level levelThree = new Level(
-				new Value(1),
-				new Value(2),
-				new Value(3)
-		);
-		return levelThree.toString();
-	}
-
 	public Values values() {
 		return this.values;
 	}
