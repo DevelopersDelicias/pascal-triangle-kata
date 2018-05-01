@@ -24,24 +24,16 @@ public class PascalTriangle {
 	}
 
 	private String levelOne() {
-		return startLevelIndicator() + valueOne() + endLevelIndicator();
+		return startLevelIndicator() + Value.valueOne() + endLevelIndicator();
 	}
 
 	private String levelTwo() {
-		return startLevelIndicator() + valueOne() + valueSeparator() + valueOne() + endLevelIndicator();
+		return startLevelIndicator() + Value.valueOne() + valueSeparator() + Value.valueOne() + endLevelIndicator();
 	}
 
 	private String levelThree() {
 		return startLevelIndicator() +
-				valueOne() + valueSeparator() + valueTwo() + valueSeparator() + valueOne() + endLevelIndicator();
-	}
-
-	private String valueOne() {
-		return "1";
-	}
-
-	private String valueTwo() {
-		return "2";
+				Value.valueOne() + valueSeparator() + Value.valueTwo() + valueSeparator() + Value.valueOne() + endLevelIndicator();
 	}
 
 	private String startLevelIndicator() {
