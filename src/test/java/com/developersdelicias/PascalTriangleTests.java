@@ -107,6 +107,56 @@ public class PascalTriangleTests {
 	}
 
 	@Test
+	public void can_get_pascal_levels_for_level_six() {
+		final PascalTriangle triangle = new PascalTriangle(6);
+
+		assertThat(
+				"Cannot get levels of Pascal Triangle of level 6",
+				triangle.levels(),
+				is(new Levels(
+								new Level(
+										new Value(1)
+								),
+								new Level(
+										new Value(1),
+										new Value(1)
+								),
+								new Level(
+										new Value(1),
+										new Value(2),
+										new Value(1)
+
+								),
+								new Level(
+										new Value(1),
+										new Value(3),
+										new Value(3),
+										new Value(1)
+
+								),
+								new Level(
+										new Value(1),
+										new Value(4),
+										new Value(6),
+										new Value(4),
+										new Value(1)
+
+								),
+								new Level(
+										new Value(1),
+										new Value(5),
+										new Value(10),
+										new Value(10),
+										new Value(5),
+										new Value(1)
+
+								)
+						)
+				)
+		);
+	}
+
+	@Test
 	@Ignore("Not sure if I want to implement this logic like this")
 	public void can_be_represented_as_a_list_of_levels_for_single_level() {
 		PascalTriangle pascalTriangle = Mockito.spy(new PascalTriangle(ANY_LEVEL));
