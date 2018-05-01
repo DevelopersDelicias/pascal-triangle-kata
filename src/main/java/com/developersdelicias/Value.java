@@ -7,14 +7,6 @@ public class Value {
 		this.number = number;
 	}
 
-	public static String valueOne() {
-		return "1";
-	}
-
-	public static String valueTwo() {
-		return "2";
-	}
-
 	@Override
 	public String toString() {
 		return number.toString();

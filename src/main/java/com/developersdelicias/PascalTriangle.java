@@ -1,6 +1,10 @@
 package com.developersdelicias;
 
 public class PascalTriangle {
+
+	private final Value valueOne = new Value(1);
+	private final Value valueTwo = new Value(2);
+
 	public String triangleOf(int level) {
 		return level == 1 ? triangleOfLevelOne()
 				: level == 2 ? triangleOfLevelTwo()
@@ -24,16 +28,16 @@ public class PascalTriangle {
 	}
 
 	private String levelOne() {
-		return startLevelIndicator() + Value.valueOne() + endLevelIndicator();
+		return startLevelIndicator() + valueOne + endLevelIndicator();
 	}
 
 	private String levelTwo() {
-		return startLevelIndicator() + Value.valueOne() + valueSeparator() + Value.valueOne() + endLevelIndicator();
+		return startLevelIndicator() + valueOne + valueSeparator() + valueOne + endLevelIndicator();
 	}
 
 	private String levelThree() {
 		return startLevelIndicator() +
-				Value.valueOne() + valueSeparator() + Value.valueTwo() + valueSeparator() + Value.valueOne() + endLevelIndicator();
+				valueOne + valueSeparator() + valueTwo + valueSeparator() + valueOne + endLevelIndicator();
 	}
 
 	private String startLevelIndicator() {
