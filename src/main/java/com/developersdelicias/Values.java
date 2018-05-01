@@ -10,6 +10,10 @@ public class Values {
 		this.values = values;
 	}
 
+	public static String valueSeparator() {
+		return ", ";
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
@@ -19,6 +23,18 @@ public class Values {
 		Values other = (Values) o;
 
 		return Arrays.equals(this.values, other.values);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder out = new StringBuilder("");
+		for (int currentIndex = 0; currentIndex < values.length; currentIndex++) {
+			out.append(values[currentIndex]);
+			if (values.length > 1 && currentIndex < values.length - 1)
+				out.append(valueSeparator());
+		}
+
+		return out.toString();
 	}
 
 	@Override
