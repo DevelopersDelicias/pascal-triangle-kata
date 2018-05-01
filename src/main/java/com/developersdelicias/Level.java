@@ -1,5 +1,7 @@
 package com.developersdelicias;
 
+import java.util.Objects;
+
 public class Level {
 	private final Values values;
 
@@ -38,5 +40,18 @@ public class Level {
 	@Override
 	public String toString() {
 		return String.format("[%s]", values);
+	}
+
+	@Override
+	public boolean equals(Object other) {
+		if (this == other) return true;
+		if (other == null || getClass() != other.getClass()) return false;
+		Level otherLevel = (Level) other;
+		return Objects.equals(this.values, otherLevel.values);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.values);
 	}
 }
