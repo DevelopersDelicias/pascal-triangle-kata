@@ -21,4 +21,19 @@ public class LevelTest {
 				))
 		);
 	}
+
+	@Test
+	public void can_be_represented_as_string() {
+		Level aLevel = new Level(
+				new Value(100),
+				new Value(154),
+				new Value(45)
+		);
+
+		assertThat(
+				"Cannot be represented as a String",
+				aLevel.toString(),
+				is("[100, 154, 45]")
+		);
+	}
 }

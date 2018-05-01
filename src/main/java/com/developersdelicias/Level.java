@@ -3,32 +3,40 @@ package com.developersdelicias;
 public class Level {
 	private final Values values;
 
-	public Level(Value... values) {
+	Level(Value... values) {
 		this.values = new Values(values);
 	}
 
 	static String levelOne() {
-		return startLevelIndicator() + new Value(1) + endLevelIndicator();
+		Level levelOne = new Level(
+				new Value(1)
+		);
+		return levelOne.toString();
 	}
 
 	static String levelTwo() {
-		return startLevelIndicator() + new Value(1) + Values.valueSeparator() + new Value(1) + endLevelIndicator();
+		Level levelTwo = new Level(
+				new Value(1),
+				new Value(1)
+		);
+		return levelTwo.toString();
 	}
 
 	static String levelThree() {
-		return startLevelIndicator() +
-				new Value(1) + Values.valueSeparator() + new Value(2) + Values.valueSeparator() + new Value(1) + endLevelIndicator();
-	}
-
-	private static String startLevelIndicator() {
-		return "[";
-	}
-
-	private static String endLevelIndicator() {
-		return "]";
+		Level levelThree = new Level(
+				new Value(1),
+				new Value(2),
+				new Value(3)
+		);
+		return levelThree.toString();
 	}
 
 	public Values values() {
 		return this.values;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("[%s]", values);
 	}
 }
