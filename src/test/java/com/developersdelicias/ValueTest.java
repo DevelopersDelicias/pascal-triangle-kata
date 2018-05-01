@@ -41,4 +41,14 @@ public class ValueTest {
 				is(not(secondValue))
 		);
 	}
+
+	@Test
+	public void can_obtain_the_value_number() {
+		Number expected = 140;
+		assertThat(
+				"Cannot obtain the value number",
+				new Value(140).value(),
+				is(expected)
+		);
+	}
 }

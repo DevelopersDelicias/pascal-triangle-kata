@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Value {
 	private final Number number;
 
-	public Value(Number number) {
+	Value(Number number) {
 		this.number = number;
 	}
 
@@ -29,5 +29,9 @@ public class Value {
 	@Override
 	public int hashCode() {
 		return number.hashCode();
+	}
+
+	public Number value() {
+		return this.number;
 	}
 }
