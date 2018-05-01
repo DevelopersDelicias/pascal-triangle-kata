@@ -23,19 +23,40 @@ public class PascalTriangle {
 		return levelOne() + levelSeparator() + levelTwo() + levelSeparator() + levelThree();
 	}
 
-	private String levelThree() {
-		return "[1, 2, 1]";
+	private String levelOne() {
+		return startLevelIndicator() + valueOne() + endLevelIndicator();
 	}
 
 	private String levelTwo() {
-		return "[1, 1]";
+		return startLevelIndicator() + valueOne() + valueSeparator() + valueOne() + endLevelIndicator();
+	}
+
+	private String levelThree() {
+		return startLevelIndicator() +
+				valueOne() + valueSeparator() + valueTwo() + valueSeparator() + valueOne() + endLevelIndicator();
+	}
+
+	private String valueOne() {
+		return "1";
+	}
+
+	private String valueTwo() {
+		return "2";
+	}
+
+	private String startLevelIndicator() {
+		return "[";
+	}
+
+	private String endLevelIndicator() {
+		return "]";
 	}
 
 	private String levelSeparator() {
 		return ", ";
 	}
 
-	private String levelOne() {
-		return "[1]";
+	private String valueSeparator() {
+		return ", ";
 	}
 }
