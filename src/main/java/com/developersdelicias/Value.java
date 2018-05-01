@@ -1,6 +1,6 @@
 package com.developersdelicias;
 
-import java.util.Objects;
+import java.math.BigDecimal;
 
 public class Value {
 	private final Number number;
@@ -23,7 +23,7 @@ public class Value {
 
 		Value other = (Value) o;
 
-		return Objects.equals(this.number, other.number);
+		return toBigDecimal().equals(other.toBigDecimal());
 	}
 
 	@Override
@@ -33,5 +33,13 @@ public class Value {
 
 	public Number value() {
 		return this.number;
+	}
+
+	public Value plus(Value otherValue) {
+		return new Value(toBigDecimal().add(otherValue.toBigDecimal()));
+	}
+
+	private BigDecimal toBigDecimal() {
+		return new BigDecimal(this.value().toString());
 	}
 }

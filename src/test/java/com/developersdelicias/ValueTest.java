@@ -51,4 +51,13 @@ public class ValueTest {
 				is(expected)
 		);
 	}
+
+	@Test
+	public void can_add_value_to_other_values() {
+
+		assertThat(
+				new Value(100).plus(new Value(50)),
+				is(new Value(150))
+		);
+	}
 }
