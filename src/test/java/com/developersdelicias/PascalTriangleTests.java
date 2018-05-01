@@ -4,28 +4,43 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
 
 public class PascalTriangleTests {
 
-	private PascalTriangle pascalTriangle;
-
 	@Test
-	public void can_retrieve_triangle_level_1() {
-		pascalTriangle = new PascalTriangle(1);
-		assertEquals(pascalTriangle.triangleOfLevelOne(), pascalTriangle.triangleOf(1));
+	public void is_a_collection_of_levels_level_one() {
+		final PascalTriangle triangle = new PascalTriangle(1);
+
+		assertThat(
+				"Cannot get levels of Pascal Triangle of level 1",
+				triangle.levels(),
+				is(new Levels(
+								new Level(
+										new Value(1)
+								)
+						)
+				)
+		);
 	}
 
 	@Test
-	public void can_retrieve_triangle_level_2() {
-		pascalTriangle = new PascalTriangle(2);
-		assertEquals(pascalTriangle.triangleOfLevelTwo(), pascalTriangle.triangleOf(2));
-	}
+	public void is_a_collection_of_levels_level_two() {
+		final PascalTriangle triangle = new PascalTriangle(2);
 
-	@Test
-	public void can_retrieve_triangle_level_3() {
-		pascalTriangle = new PascalTriangle(3);
-		assertEquals(pascalTriangle.triangleOfLevelThree(), pascalTriangle.triangleOf(3));
+		assertThat(
+				"Cannot get levels of Pascal Triangle of level 2",
+				triangle.levels(),
+				is(new Levels(
+								new Level(
+										new Value(1)
+								),
+								new Level(
+										new Value(1),
+										new Value(1)
+								)
+						)
+				)
+		);
 	}
 
 	@Test
