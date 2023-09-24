@@ -106,6 +106,17 @@ public class AcceptanceTest {
 	}
 
 	@Test
+	public void triangle_of_19() throws Exception {
+		format = new BranchedPascalTriangleFormat();
+
+		printPascalTriangleOfLevel(19);
+
+		String expectedTriangle = fromFile("src/test/resources/pascal_triangle_level_19.txt");
+
+		verify(output).print(expectedTriangle);
+	}
+
+	@Test
 	public void can_print_in_single_format() {
 		format = new SinglePascalTriangleFormat();
 
