@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -183,13 +184,14 @@ public class AcceptanceTest {
 
 		printPascalTriangleOfLevel(5);
 
-		verify(output)
-				.print("1\n" +
-						"1 1\n" +
-						"1 2 1\n" +
-						"1 3 3 1\n" +
-						"1 4 6 4 1"
-				);
+		String expected = triangle(
+			"1" ,
+			"1 1" ,
+			"1 2 1" ,
+			"1 3 3 1" ,
+			"1 4 6 4 1"
+		);
+		verify(output).print(expected);
 	}
 
 	@Test
@@ -202,11 +204,14 @@ public class AcceptanceTest {
 
 		File file = new File(fileToCreate);
 		assertTrue(file.exists());
-		assertThat(textOf(file), is("1\n" +
-				"1 1\n" +
-				"1 2 1\n" +
-				"1 3 3 1\n" +
-				"1 4 6 4 1"));
+		String expected = triangle(
+			"1" ,
+			"1 1" ,
+			"1 2 1" ,
+			"1 3 3 1" ,
+			"1 4 6 4 1"
+		);
+		assertThat(textOf(file), is(expected));
 		assertTrue(file.delete());
 	}
 
@@ -216,5 +221,9 @@ public class AcceptanceTest {
 
 	private void printPascalTriangleOfLevel(final int level) {
 		new PascalTriangle(level).print(output, format);
+	}
+
+	private String triangle(String...lines) {
+		return String.join("\n", lines);
 	}
 }
